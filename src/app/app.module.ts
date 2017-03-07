@@ -4,15 +4,44 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { TodosComponent } from './todos/todos.component';
+import { UserComponent } from './user/user.component';
+import { MenubarComponent } from './menubar/menubar.component';
+import { ListsComponent } from './lists/lists.component';
+
+import { RouterModule } from "@angular/router";
+import { MainComponent } from './main/main.component';
+
+const routeConfig = [
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: '/main'
+  },
+  {
+    path: 'main',
+    component: MainComponent
+  },
+  {
+    path: 'lists/:name',
+    component: ListsComponent
+  }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TodosComponent,
+    UserComponent,
+    MenubarComponent,
+    ListsComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routeConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
