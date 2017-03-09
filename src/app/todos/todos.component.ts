@@ -12,8 +12,6 @@ export class TodosComponent implements OnInit {
   itemObj: any;
   listname: string = "";
 
-  //lists: any = [];
-
   constructor() {
     this.newItem = '';
     this.items = [];
@@ -59,6 +57,7 @@ export class TodosComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class UserComponent implements OnInit {
 
   private user: any = {};
+  //username: string = "";
 
   constructor() { }
 
@@ -15,14 +17,39 @@ export class UserComponent implements OnInit {
     localStorage.setItem('user', JSON.stringify(formValues));
     this.user = formValues;
     console.log(this.user);
+    // router link?
+    // this.router.navigate(['main']);
   };
 
-  removeUser = () => {
+  clearField() {
+    //document.getElementById('usernamefield').value= "";
+  }
+
+
+  /* createUser() {
+    let kayttaja: any = [];
+    if (localStorage.getItem('user') != null){
+      kayttaja = JSON.parse(localStorage.getItem('user'));
+    }
+    const kayttajaobject: any = {
+      username: this.username
+    };
+    kayttaja.push(kayttajaobject);
+    localStorage.setItem('user', JSON.stringify(kayttaja));
+  }*/
+
+  /* deleteUser = () => {
     localStorage.removeItem('user');
+  }*/
+
+  userAlert() {
+    //localStorage.removeItem('user');
+    //localStorage.removeItem('lists');
+    localStorage.clear();
   }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem('user'));
+    //this.user = JSON.parse(localStorage.getItem('user'));
   }
 
 }

@@ -1,15 +1,52 @@
-<form #userform="ngForm" (ngSubmit)="setUserinfo(userform.value)">
+<form id="createuser" #userform="ngForm" (ngSubmit)="setUserinfo(userform.value)">
+  <h4>create new user</h4>
   <label>
     Name:<br/>
-    <input type="text" name="username" ngModel>
+    <input type="text" name="username" ngModel id="usernamefield">
   </label>
   <br/>
   <br/>
-  <button type="submit">ok</button>
-  <button type="reset">clear form</button>
-  <button (click)="removeUser">delete user</button>
+  <button type="submit" (click)="clearField()">create</button>
+  <!-- <button (click)="deleteUser">delete user</button> -->
+  <!-- <button (click)="userAlert()">delete user</button> -->
+  <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#deleteusermodal">
+    delete all user content
+  </button>
+  <br/><br/>
+  <button [routerLink] = "['/main']">your lists</button>
 </form>
 
-<br/>
-<h4>user info:</h4>
-<p>name: {{ user.username }}</p>
+<!-- <label>
+  username:<br/>
+  <input type="text" [(ngModel)]="username"><br/><br/>
+  {{ username }}
+</label>
+<button (click)="createUser()">save</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="deleteusermodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ALERT!!!!!!!!!!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        are you sure?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="userAlert()">ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="userinfo">
+  <h4>user info:</h4>
+  <p>name:<br/> {{ user.username }}</p>
+</div>
+
+<a id="back" [routerLink] = "['/startpage']">back</a>

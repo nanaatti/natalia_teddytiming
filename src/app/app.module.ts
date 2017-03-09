@@ -11,12 +11,18 @@ import { ListsComponent } from './lists/lists.component';
 
 import { RouterModule } from "@angular/router";
 import { MainComponent } from './main/main.component';
+import { WeatherComponent } from './weather/weather.component';
+import { StartpageComponent } from './startpage/startpage.component';
 
 const routeConfig = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/main'
+    redirectTo: '/startpage'
+  },
+  {
+    path: 'startpage',
+    component: StartpageComponent
   },
   {
     path: 'main',
@@ -25,6 +31,10 @@ const routeConfig = [
   {
     path: 'lists/:name',
     component: ListsComponent
+  },
+  {
+    path: 'user',
+    component: UserComponent
   }
 ];
 
@@ -35,7 +45,9 @@ const routeConfig = [
     UserComponent,
     MenubarComponent,
     ListsComponent,
-    MainComponent
+    MainComponent,
+    WeatherComponent,
+    StartpageComponent
   ],
   imports: [
     BrowserModule,
