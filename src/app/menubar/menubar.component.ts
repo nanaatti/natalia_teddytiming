@@ -24,12 +24,6 @@ export class MenubarComponent implements OnInit {
 
   showList() {
     this.lists = JSON.parse(localStorage.getItem('lists'));
-    /*let listnames = document.getElementById('listnames');
-    if (listnames.style.display === 'none') {
-      listnames.style.display = 'block';
-    } else {
-      listnames.style.display = 'none';
-    }*/
   }
 
   deleteList(i) {

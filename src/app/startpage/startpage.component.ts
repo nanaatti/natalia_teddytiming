@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StartpageComponent implements OnInit {
 
-  private user: any = {};
-
   constructor() { }
 
   ngOnInit() {
     // document.getElementById("navbar").style.display = "none";
+    document.getElementById('navbar').style.display = "none";
+    document.getElementById('logo').style.marginTop = "10em";
   }
 
 }

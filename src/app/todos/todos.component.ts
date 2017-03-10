@@ -57,7 +57,8 @@ export class TodosComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    document.getElementById('navbar').style.display = "block";
+    document.getElementById('logo').style.marginTop = "0";
   }
 
 }

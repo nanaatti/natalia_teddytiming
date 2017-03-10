@@ -7,7 +7,7 @@
 
 $green: #d1e3b4;
 $lightgreen: #f5f9eb;
-$darkgreen: #abd372;
+$hovergreen: #e5efd5;
 $white: #ffffff;
 $black: #000000;
 $grey: #999999;
@@ -15,6 +15,7 @@ $gray: #afafaf;
 $lightgrey: #dddddd;
 
 // light theme //
+
 body {
   height: 100%;
 
@@ -24,6 +25,19 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+
+  // startpage //
+
+  #startlink {
+    text-align: center;
+    margin-top: 3em;
+    font-size: 25px;
+  }
+
+  #startlinktext {
+    text-decoration: none;
+    color: $black;
+  }
 
   #toggle {
     display: block;
@@ -36,7 +50,7 @@ body {
     position: fixed;
   }
   #toggle:hover {
-    background-color: $darkgreen;
+    background-color: $hovergreen;
     cursor: pointer;
   }
 
@@ -76,14 +90,6 @@ body {
     .navbar {
       background-color: $green;
 
-      /*#openbtn {
-        color: $black;
-        font-size: 30px;
-        width: 50px;
-        cursor: pointer;
-        z-index: 100;
-      }*/
-
       .navbtn {
         z-index: 100;
         color: #fff;
@@ -96,6 +102,8 @@ body {
         font-size: 40px;
         margin-top: -9px;
         float: left;
+        margin-left: 1em;
+        position: absolute;
       }
 
       #closebtn {
@@ -109,18 +117,24 @@ body {
 
       #deletelistbtn {
         cursor: pointer;
-        font-size: 30px;
-        //float: right;
-        //margin-right: 20px;
+        font-size: 20px;
+        height: 25px;
+        line-height: 0.8;
+        margin-top: 8px;
       }
 
       .menulistbtn {
         background-color: $green;
         margin-top: 15px;
         margin-left: 40px;
+        height: 36px;
+        font-size: 1.1em;
+        vertical-align: top;
+        border: solid 1px #999;
+        border-radius: 2px;
       }
       .menulistbtn:hover {
-        background-color: $darkgreen;
+        background-color: $hovergreen;
       }
 
       .navbar-brand {
@@ -144,7 +158,7 @@ body {
         height: 100%;
         width: 0;
         position: fixed;
-        z-index: 100;
+        z-index: 150;
         top: 0;
         left: 0;
         background-color: $lightgreen;
@@ -183,14 +197,6 @@ body {
           text-align: center;
         }
 
-        .weathertype {
-          margin-left: 2.5em;
-        }
-
-        .weatherfield {
-          margin-left: 1em;
-        }
-
       }
 
     }
@@ -201,44 +207,53 @@ body {
   .todos {
     width: 100%;
     padding: 20px;
-    background: $lightgreen;
+    // background: $lightgreen;
+    background: rgba(245, 249, 235, 0.6);
     margin-top: 50px;
     border-radius: 15px;
 
-    input {
-      .textfield {
-        /*width: 480px;*/
-        height: 36px;
-        margin-right: 20px;
-        font-size: 1.4em;
-        vertical-align: top;
-      }
+    input.textfield {
+      //width: 480px;
+      height: 36px;
+      margin-right: 20px;
+      font-size: 1.4em;
+      vertical-align: top;
+    }
 
-      [name="newItem"] {
-        width: 500px;
-        transition: width 0.4s ease-in-out;
-      }
+    input[name="newItem"] {
+      width: 300px;
+      transition: width 0.4s ease-in-out;
+    }
 
-      [name="newItem"]:focus {
-        width: 970px;
-      }
+    input[name="newItem"]:focus {
+      width: 700px;
 
-      .checkbox {
-        width: 20px;
-        height: 20px;
-      }
-
-      .checked {
-        text-decoration: line-through;
+      @media screen and (max-width: 1000px) {
+        width: 300px;
       }
     }
 
+    input.checkbox {
+      width: 20px;
+      height: 20px;
+
+    }
+
+    .checked {
+      text-decoration: line-through;
+    }
+
     button {
+      background-color: $green;
       height: 36px;
       font-size: 1.1em;
       vertical-align: top;
       border: solid 1px $grey;
       border-radius: 2px;
+    }
+
+    button:hover {
+      background-color: #e5efd5;
     }
 
     .delete-icon {
@@ -252,18 +267,27 @@ body {
       //padding: 16px 12px 16px;
     }
 
+    #listnamefield {
+      width: 300px;
+    }
+
+    #addtodo {
+      width: 100%;
+    }
+
     #addbutton {
+      //margin-top: 1.4em;
       height: 36px;
       font-size: 1.1em;
       vertical-align: top;
       border: solid 1px $grey;
       border-radius: 2px;
-      float: right;
+      margin-right: 250px;
+      margin-bottom: 30px;
     }
-  }
 
-  #todo {
-    height: 20px;
+    #addbutton:hover {
+    }
   }
 
   li {
@@ -272,60 +296,30 @@ body {
     position: relative;
   }
 
-  //checkbox-testi//
-  .checkbox-custom {
-    opacity: 0;
-    position: absolute;
+  // lists //
+
+  #listname {
+    margin-left: 1.8em;
+    margin-bottom: 1.3em;
   }
 
-  .checkbox-custom, .checkbox-custom-label {
-    display: inline-block;
-    /*vertical-align: middle;*/
-    margin: 5px;
-    cursor: pointer;
-  }
 
-  .checkbox-custom-label {
-    position: relative;
-  }
+  //weather //
 
-  .checkbox-custom + .checkbox-custom-label:before {
-    content: '';
-    background: $white;
-    border: 2px solid $lightgrey;
-    display: inline-block;
-    vertical-align: middle;
-    width: 30px;
-    height: 30px;
-    /*padding: 2px;*/
-    margin-right: 10px;
-    text-align: center;
-  }
+  #weatherdiv {
+    margin-top: 10em;
 
-  .checkbox-custom:checked + .checkbox-custom-label:before {
-    content: "\f00c";
-    font-family: 'FontAwesome';
-    background: $gray;
-    color: $white;
-  }
+    .weathertype {
+      margin-left: 2.5em;
+    }
 
-  //weather
-  button {
-    height: 36px;
-    font-size: 1.1em;
-    vertical-align: top;
-    border: solid 1px #999;
-    border-radius: 2px;
-    background-color: $green;
-  }
-  button:hover {
-    background-color: $darkgreen;
-  }
+    .weatherfield {
+      margin-left: 1em;
+    }
 
-  .container {
-    margin: auto;
-    /*display: flex;*/
-    /*flex-wrap: wrap;*/
+    #city {
+      margin-left: 46px;
+    }
   }
 
   footer {
@@ -349,16 +343,4 @@ input#lightswitch:checked + body {
   background-image: url('/assets/blurdarkbg.jpg');
   background-color: $grey;
 }
-
-
-
-@media screen and (max-width: 450px) {
-  #menu {
-    padding-top: 15px;
-  }
-  #menu ul li a {
-    font-size: 18px;
-  }
-}
-
 

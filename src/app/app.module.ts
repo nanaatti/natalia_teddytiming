@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { TodosComponent } from './todos/todos.component';
-import { UserComponent } from './user/user.component';
 import { MenubarComponent } from './menubar/menubar.component';
 import { ListsComponent } from './lists/lists.component';
 
@@ -31,10 +30,6 @@ const routeConfig = [
   {
     path: 'lists/:name',
     component: ListsComponent
-  },
-  {
-    path: 'user',
-    component: UserComponent
   }
 ];
 
@@ -42,7 +37,6 @@ const routeConfig = [
   declarations: [
     AppComponent,
     TodosComponent,
-    UserComponent,
     MenubarComponent,
     ListsComponent,
     MainComponent,

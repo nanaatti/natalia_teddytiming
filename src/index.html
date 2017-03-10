@@ -18,11 +18,12 @@
 
 </head>
   <body>
-  <label for="lightswitch" id="toggle">Light Switch</label>
   <input type="checkbox" id="lightswitch" />
     <div id="bg-container">
       <div class="header">
-        <img id="logo" src="../assets/black_logo.png"/>
+        <a [routerLink] = "['/main']">
+          <img id="logo" src="../assets/black_logo.png"/>
+        </a>
       </div>
       <app-root>Loading...</app-root>
 

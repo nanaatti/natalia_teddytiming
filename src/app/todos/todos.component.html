@@ -1,41 +1,42 @@
-<div class="row">
-  <div class="todos">
-    <div>
-      <label>
-        List name:<br/>
-        <input type="text" [(ngModel)]="listname"><br/><br/>
-        {{ listname }}
-      </label><br/>
+<div class="container">
+    <div class="todos">
+      <div>
+        <h4>Create new list</h4><br/>
+        <form>
+          <form>
+            <label>
+              List name:<br/>
+              <input id="listnamefield" name="listname" type="text" [(ngModel)]="listname"><br/>
+              {{ listname }}
+            </label><br/>
+          </form>
 
-      <form #listform="ngForm" (ngSubmit)="addItem($event);">
-        <label>
-          <input [(ngModel)]="newItem" (keyup.enter)="newItem=''" class="textfield" name="newItem">
-        </label>
-        <button id="addbutton" type="submit" [disabled]="newItem===''">Add Todo</button>
-      </form>
+          <form #listform="ngForm" (ngSubmit)="addItem($event);">
+            <label id="addtodo">
+              Add todo:<br/>
+              <input [(ngModel)]="newItem" (keyup.enter)="newItem=''" class="textfield" name="newItem">
+            </label>
+            <div [hidden]="!newItem">
+              Typing: {{ newItem }}
+            </div>
+            <button id="addbutton" type="submit" [disabled]="newItem===''">add</button>
+          </form>
+        </form>
+      </div>
+
+      <ul>
+        <li *ngFor="let item of items; let i=index">
+          <label>
+            <input type="checkbox" class="checkbox" [(ngModel)]="item.completed"/>
+          </label>
+          <span [ngClass]="{'checked': item.completed}">{{ item.newItem }}</span>
+          <span (click)="deleteTodo(i)" class="delete-icon">&times;</span>
+        </li>
+      </ul>
+
+      <div>
+        <button (click)="deleteSelected()">delete selected</button>
+        <button (click)="createList()">save list</button>
+      </div>
     </div>
-
-    <div [hidden]="newItem">
-      Type in a new todo...
-    </div>
-
-    <div [hidden]="!newItem">
-      Typing: {{ newItem }}
-    </div>
-
-    <ul>
-      <li *ngFor="let item of items; let i=index">
-        <label>
-          <input type="checkbox" class="checkbox" [(ngModel)]="item.completed"/>
-        </label>
-        <span [ngClass]="{'checked': item.completed}">{{ item.newItem }}</span>
-        <span (click)="deleteTodo(i)" class="delete-icon">&times;</span>
-      </li>
-    </ul>
-
-    <div>
-      <button (click)="deleteSelected()">delete selected</button>
-      <button (click)="createList()">save list</button>
-    </div>
-  </div>
 </div>
