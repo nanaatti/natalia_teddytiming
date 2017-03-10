@@ -1,9 +1,4 @@
-
-
-
-
 /* You can add global styles to this file, and also import other style files */
-
 
 $green: #d1e3b4;
 $lightgreen: #f5f9eb;
@@ -322,6 +317,8 @@ body {
     }
   }
 
+  // footer //
+
   footer {
     text-align: center;
     background-color: $lightgreen;
@@ -339,8 +336,7 @@ body {
 
 //lightswitch//
 
-input#lightswitch:checked + body {
+/*input#lightswitch:checked + body {
   background-image: url('/assets/blurdarkbg.jpg');
   background-color: $grey;
-}
-
+}*/

@@ -41,19 +41,13 @@ export class ListsComponent implements OnInit {
     localStorage.setItem('lists', JSON.stringify(this.sisalto));
   }*/
 
-  /*deleteList(i) {
-    this.lists = JSON.parse(localStorage.getItem('lists'));
-    this.lists.splice(i, 1);
-    localStorage.setItem('lists', JSON.stringify(this.lists));
-  }*/
-
-  deleteSelected() {
+  /*deleteSelected() {
     for(let i=(this.sisalto.length -1); i > -1; i--) {
       if(this.sisalto[i].completed) {
         //deleteTodo(i);
       }
     }
-  }
+  }*/
 
   deleteTodo(i) {
     this.lists = JSON.parse(localStorage.getItem('lists'));

@@ -10,7 +10,6 @@ export class StartpageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // document.getElementById("navbar").style.display = "none";
     document.getElementById('navbar').style.display = "none";
     document.getElementById('logo').style.marginTop = "10em";
   }
