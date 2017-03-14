@@ -243,7 +243,6 @@ body {
       @media screen and (max-width: 400px) {
         width: 250px;
       }
-
     }
 
     input[name="newItem"] {
@@ -259,6 +258,10 @@ body {
       width: 600px;
 
       @media screen and (max-width: 800px) and (min-width: 300px) {
+        width: 300px;
+      }
+
+      @media screen and (max-width: 400px) {
         width: 250px;
       }
     }
